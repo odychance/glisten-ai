@@ -7,6 +7,7 @@ import { PiArrowsClockwiseThin, PiGear } from "react-icons/pi";
 
 import Bounded from "@/components/Bounded";
 import ButtonLink from "@/components/ButtonLink";
+import AnimatedContent from "./AnimatedContent";
 
 const icons = {
   gear: <PiGear />,
@@ -30,16 +31,19 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
     >
       <div className="glow absolute -z-10 aspect-square w-full max-w-xl rounded-full bg-blue-400/20 blur-3xl filter" />
 
-      <PrismicRichText
-        field={slice.primary.heading}
-        components={{
-          heading2: ({children}) => (
-            <h2 className="text-balance text-center text-5xl font-medium md:text-7xl">
-              {children}
-            </h2>
-          )
-        }}
-      />
+      <AnimatedContent>
+
+        <PrismicRichText
+          field={slice.primary.heading}
+          components={{
+            heading2: ({children}) => (
+              <h2 className="text-balance text-center text-5xl font-medium md:text-7xl">
+                {children}
+              </h2>
+            )
+          }}
+        />
+      </AnimatedContent>
 
       <div className="grid mt-16 items-center rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 p-8 backdrop-blur-sm lg:grid-cols-3 lg:py-12 gap-8 md:gap-0">
 

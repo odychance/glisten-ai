@@ -4,6 +4,7 @@ import { SliceComponentProps, PrismicRichText, PrismicText } from "@prismicio/re
 import ButtonLink from "@/components/ButtonLink";
 import Bounded from "@/components/Bounded";
 import StarGrid from "@/components/StarGrid";
+import AnimatedContent from "./AnimatedContent";
 
 /**
  * Props for `Hero`.
@@ -20,34 +21,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="text-center"
     >
-      <div className="relatice">
-        <StarGrid />
-        {isFilled.richText(slice.primary.heading) && (
-          <h1 className="text-balance text-center text-5xl font-medium md:text-7xl">
-            <PrismicText field={slice.primary.heading} />
-          </h1>
-        )}
-
-        {isFilled.richText(slice.primary.body) && (
-          <div className="mx-auto mt-6 max-w-md text-balance text-slate-300">
-            <PrismicRichText field={slice.primary.body} />
-          </div>
-        )}
-
-        {isFilled.link(slice.primary.button_link) && (
-          <ButtonLink className="mt-8" field={slice.primary.button_link}>
-            {slice.primary.button_label}
-          </ButtonLink>
-        )}
-
-        {isFilled.image(slice.primary.image) && (
-          <div className="glass-container mt-16 w-fit">
-            <div className="absolute inset-0 -z-10 blur-2xl filter bg-yellow-500/40"/>
-            <PrismicNextImage className="rounded-lg" field={slice.primary.image} />
-          </div>
-        )}
-
-      </div>
+      <AnimatedContent slice={slice}/>
     </Bounded>
   );
 };
